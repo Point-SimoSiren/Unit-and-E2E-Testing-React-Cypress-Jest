@@ -1,33 +1,48 @@
 import React, { useState } from 'react'
-
+import '../App.css'
 //Viitataan vaihteeksi propsiin suoraan nimellä kun se on tiedossa!
-const LisäysFormi = ({ setShowAddForm }) => {
+const LisäysFormi = ({ setShowAddForm, luoKurssi }) => {
 
   const [name, setName] = useState('')
   const [osp, setOsp] = useState('')
 
-  const addKurssi = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault()
-    alert("YES!!", "uusi kurssi mukamas lisätty", "Uskotaan!")
+    luoKurssi(
+      name,
+      osp
+    )
     setName('')
     setOsp('')
+  }
+
+  const handleChangeName = (event) => {
+    setName(event.target.value)
+  }
+
+  const handleChangeOsp = (event) => {
+    setOsp(event.target.value)
   }
 
   return (
     <div className="formDiv">
 
-      <h2>Create a new note</h2>
+      <h2>Lisää uusi kurssi</h2>
 
-      <form onSubmit={addKurssi}>
-        <input
+      <form onSubmit={handleSubmit}>
+
+        <input className="input1"
+          placeholder="Kurssin nimi"
           value={name}
-          onChange={() => setName(this.value)}
+          onChange={handleChangeName}
         />
-        <input
+        <input className="input2"
+          placeholder="Laajuus (osp)"
           value={osp}
-          onChange={() => setOsp(this.value)}
+          onChange={handleChangeOsp}
         />
-        <button type="submit">Tallenna</button>
+
+        <button className="nappi" type="submit">Tallenna</button>
       </form>
 
       <button className="nappi"

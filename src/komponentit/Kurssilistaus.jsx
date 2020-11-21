@@ -8,6 +8,7 @@ const Kurssilistaus = () => {
   { nimi: 'SQL peruskurssi', laajuus: '3osp' },
   { nimi: 'React.js sovellusten kehittäminen', laajuus: '8osp' }]
 
+
   return (
     <div className="App">
       <h2>Kurssit</h2>
@@ -18,7 +19,7 @@ const Kurssilistaus = () => {
       }
 
     </div>
-  );
+  )
 }
 
-export default Kurssilistaus;
+export default Kurssilistaus

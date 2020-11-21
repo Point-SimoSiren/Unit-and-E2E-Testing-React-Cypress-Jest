@@ -9,6 +9,14 @@ import Footer from './komponentit/Footer'
 const App = () => {
 
   const [showAddForm, setShowAddForm] = useState(false)
+  const [justToUpdate, updateItBoy] = useState(false)
+
+  const luoKurssi = (nimi, laajuus) => {
+    alert('Kurssi luotu nimellä: ' + nimi)
+    alert('Laajuus ' + laajuus)
+    localStorage.setItem('kurssi', nimi)
+    updateItBoy(!justToUpdate)
+  }
 
   return (
     <div className="App">
@@ -18,7 +26,7 @@ const App = () => {
 
       {showAddForm === false && <button className="nappi" onClick={() => setShowAddForm(true)}>Lisää kurssi</button>}
 
-      {showAddForm === true && <LisäysFormi setShowAddForm={setShowAddForm} />
+      {showAddForm === true && <LisäysFormi luoKurssi={luoKurssi} setShowAddForm={setShowAddForm} />
       }
 
       <Kurssilistaus />
