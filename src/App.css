@@ -1,0 +1,50 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.nappi {
+  padding: 1em;
+  margin-top: 0.5rem;
+  color: darkviolet;
+  background-color: white;
+  border-radius: 10px;
+  border-color: darkviolet;
+  border-width: 3px;
+}
+
+.footer {
+  margin-top: 10%;
+  background-color: darkviolet;
+  min-height: 30vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  justify-content: center;
+  ;
+}
+
+.kurssi {
+  padding: 0.7rem;
+  background-color: violet;
+  width: 50%;
+  margin: auto;
+
+}
+
+.App-header {
+  background-color: darkviolet;
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
