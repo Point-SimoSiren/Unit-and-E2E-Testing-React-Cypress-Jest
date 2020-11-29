@@ -17,10 +17,33 @@
   border-width: 3px;
 }
 
+.message {
+  width: 40%;
+  margin: auto;
+  font-size: 30px;
+ padding: 50px;
+  background-color: silver;
+  color: green;
+  border-width: 10px;
+  border-color: green;
+}
+
+.nappiDelete {
+  padding: 0.4em;
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
+  color: white;
+  background-color: darkviolet
+  ;
+  border-radius: 10px;
+  border-color: white;
+  border-width: 2px;
+}
+
 .footer {
-  margin-top: 10%;
+  margin-top: 5%;
   background-color: darkviolet;
-  min-height: 30vh;
+  min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -37,7 +60,7 @@
 
 }
 
-.input1 {
+#nimiInput {
   width: 30%;
   padding: 12px 20px;
   margin: 8px 8px;
@@ -45,7 +68,7 @@
   border-radius: 5px;
 }
 
-.input2 {
+#laajuusInput {
   width: 10%;
   padding: 12px 20px;
   margin: 8px 8px;

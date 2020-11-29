@@ -1,23 +1,24 @@
 import React from 'react'
-import '../App.css'
+import './Tyyli.css'
 import Kurssi from './Kurssi'
 
-const Kurssilistaus = () => {
+const Kurssilistaus = ({ kurssit, poistaKurssi }) => {
 
-  const kurssit = [{ nimi: 'Python perusteet', laajuus: '4 osp' },
-  { nimi: 'SQL peruskurssi', laajuus: '3osp' },
-  { nimi: 'React.js sovellusten kehittäminen', laajuus: '8osp' }]
-
+  /*
+  "kurssit !== null && " tarkoittaa samaa kuin: If kurssit !== null {
+      map funktio looppaa kaikki alkiot läpi ja palauttaa
+      jokaisen kohdalla yksittäisen kurssi objektin jonka renderöinnin hoitaa Kurssi.jsx, joka saa kurssiobjektin propsina.
+  }
+  */
 
   return (
     <div className="App">
       <h2>Kurssit</h2>
 
-      {kurssit.map(kurssi =>
-        <Kurssi kurssi={kurssi} />
+      {kurssit !== null && kurssit.map(kurssi =>
+        <Kurssi kurssi={kurssi} poistaKurssi={poistaKurssi} />
       )
       }
-
     </div>
   )
 }

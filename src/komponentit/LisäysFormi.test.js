@@ -3,45 +3,46 @@ import { render, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import LisäysFormi from './LisäysFormi'
 
-// Formin piilotusnapin testi
+describe('<LisäysFormi/>', () => {
 
-test('Klikkaus kutsuu tapahtumankäsittelijää yhden kerran', async () => {
+    let component
+    const mockFunktio = jest.fn()
 
-    const mockHandler = jest.fn()
-
-    const component = render(
-        <LisäysFormi setShowAddForm={mockHandler} />
-    )
-
-    const button = component.getByText('Piilota lomake')
-    fireEvent.click(button)
-
-    expect(mockHandler.mock.calls).toHaveLength(1)
-})
-
-
-// Formiin kirjoitus ja lähetystesti
-
-test('<LisäysFormi /> päivittää nimi ja laajuus tilan ja lähettää formin', () => {
-    const luoKurssi = jest.fn()
-
-    const component = render(
-        <LisäysFormi luoKurssi={luoKurssi} />
-    )
-
-    const nimiInput = component.container.querySelector('.input1')
-    const laajuusInput = component.container.querySelector('.input2')
-    const form = component.container.querySelector('form')
-
-    fireEvent.change(nimiInput, {
-        target: { value: 'joku kurssi vaan' }
+    beforeEach(() => {
+        component = render(
+            <LisäysFormi luoKurssi={mockFunktio} setShowAddForm={mockFunktio} />
+        )
     })
-    fireEvent.change(laajuusInput, {
-        target: { value: '6 osp' }
-    })
-    fireEvent.submit(form)
 
-    expect(luoKurssi.mock.calls).toHaveLength(1)
-    expect(luoKurssi.mock.calls[0][0].content).toHaveContent('joku kurssi vaan')
-    expect(luoKurssi.mock.calls[0][0].content).toBe('6 osp')
+    // Formin piilotusnapin testi
+
+    test('Tapahtumankäsittelijää kutsutaan yhden kerran', async () => {
+
+        const button = component.getByText('Piilota lomake')
+        fireEvent.click(button)
+
+        expect(mockFunktio.mock.calls).toHaveLength(1)
+    })
+
+    // Formiin kirjoitus ja lähetystesti
+
+    test('LisäysFormi päivittää tilat ja lähettää formin', () => {
+
+        const nimiInput = component.container.querySelector('#nimiInput')
+        const laajuusInput = component.container.querySelector('#laajuusInput')
+        const form = component.container.querySelector('form')
+
+        fireEvent.change(nimiInput, {
+            target: { value: 'testikurssi' }
+        });
+        fireEvent.change(laajuusInput, {
+            target: { value: '6' }
+        });
+
+        fireEvent.submit(form)
+
+        expect(mockFunktio.mock.calls).toHaveLength(1)
+        expect(mockFunktio.mock.calls[0][0]).toBe('3d tulostus')
+        expect(mockFunktio.mock.calls[0][1]).toBe('6')
+    })
 })

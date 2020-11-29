@@ -1,5 +1,5 @@
 import React from 'react'
-import '../App.css'
+import './Tyyli.css'
 
 const Footer = () => (
   <div className="footer">

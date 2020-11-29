@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
-import '../App.css'
-//Viitataan vaihteeksi propsiin suoraan nimellä kun se on tiedossa!
+import './Tyyli.css'
+
+// Vastaanotetaan vaihteeksi propsit suoraan nimellä kun ne on tiedossa!
+// Tällöin ei tarvitse käyttää props sanaa missään.
 const LisäysFormi = ({ setShowAddForm, luoKurssi }) => {
 
   const [name, setName] = useState('')
@@ -8,7 +10,7 @@ const LisäysFormi = ({ setShowAddForm, luoKurssi }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    luoKurssi(
+    luoKurssi( //<--------- luoKurssi() on saatu propsina App.jsx komponentilta
       name,
       osp
     )
@@ -31,12 +33,12 @@ const LisäysFormi = ({ setShowAddForm, luoKurssi }) => {
 
       <form onSubmit={handleSubmit}>
 
-        <input className="input1"
+        <input id="nimiInput"
           placeholder="Kurssin nimi"
           value={name}
           onChange={handleChangeName}
         />
-        <input className="input2"
+        <input id="laajuusInput"
           placeholder="Laajuus (osp)"
           value={osp}
           onChange={handleChangeOsp}
