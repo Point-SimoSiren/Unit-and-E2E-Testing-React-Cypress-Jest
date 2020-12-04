@@ -9,9 +9,8 @@ test('Renderöi viestin oikein', () => {
     const component = render(
         <Message message={message} />
     )
-
     // jos halutaan debugata testiä:
-    // component.debug()
+    component.debug()
 
     expect(component.container).toHaveTextContent(
         'Lisättiin kurssi: SQL perusteet!'

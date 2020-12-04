@@ -7,7 +7,7 @@
   pointer-events: none;
 }
 
-.nappi {
+#tallennusNappi, #piilotusNappi, #näytäFormi {
   padding: 1em;
   margin-top: 0.5rem;
   color: darkviolet;

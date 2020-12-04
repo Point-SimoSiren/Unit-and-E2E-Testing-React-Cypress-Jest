@@ -40,8 +40,6 @@ describe('<Kurssi/>', () => {
         )
     })
 
-    //----------------------------------------------------------
-
     test('Klikkaus kutsuu tapahtumankäsittelijää yhden kerran', async () => {
 
         const button = component.getByText('poista')
@@ -49,5 +47,4 @@ describe('<Kurssi/>', () => {
 
         expect(mockHandler.mock.calls).toHaveLength(1)
     })
-
 })

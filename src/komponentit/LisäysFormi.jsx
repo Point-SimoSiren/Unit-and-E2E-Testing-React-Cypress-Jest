@@ -44,10 +44,10 @@ const LisäysFormi = ({ setShowAddForm, luoKurssi }) => {
           onChange={handleChangeOsp}
         />
 
-        <button className="nappi" type="submit">Tallenna</button>
+        <button id="tallennusNappi" type="submit">Tallenna</button>
       </form>
 
-      <button className="nappi"
+      <button id="piilotusNappi"
         onClick={() => setShowAddForm(false)}>Piilota lomake</button>
     </div>
   )

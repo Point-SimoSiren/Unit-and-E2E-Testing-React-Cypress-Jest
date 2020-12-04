@@ -63,7 +63,7 @@ const App = () => {
 
       { showMessage === true && <Message message={message} />}
 
-      {showAddForm === false && <button className="nappi" onClick={() => setShowAddForm(true)}>Lisää kurssi</button>}
+      {showAddForm === false && <button id="näytäFormi" onClick={() => setShowAddForm(true)}>Lisää kurssi</button>}
 
       {showAddForm === true && <LisäysFormi luoKurssi={luoKurssi} setShowAddForm={setShowAddForm} />
       }
