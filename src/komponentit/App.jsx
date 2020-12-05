@@ -36,7 +36,7 @@ const App = () => {
         setShowAddForm(false)
         setTimeout(() =>
           setShowMessage(false)
-          , 4000)
+          , 1000)
         setHaeUudetDatat(!haeUudetDatat)
       })
   }
@@ -49,7 +49,7 @@ const App = () => {
         setMessage("Poisto tehty id:llä: " + id)
         setTimeout(() =>
           setShowMessage(false)
-          , 4000)
+          , 1000)
         setShowAddForm(false)
         setHaeUudetDatat(!haeUudetDatat)
       })

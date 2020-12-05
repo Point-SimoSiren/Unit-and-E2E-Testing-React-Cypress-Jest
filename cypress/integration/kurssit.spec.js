@@ -13,6 +13,7 @@ describe('Kurssit sovellus', function () {
     })
 
     it('Lisäys formi aukeaa ja lisäys toimii oikein', function () {
+
         cy.contains('Lisää kurssi').click()
         cy.contains('Tallenna')
         cy.contains('Piilota lomake')
@@ -20,9 +21,13 @@ describe('Kurssit sovellus', function () {
         cy.get('#nimiInput').type('e2eTestikurssi')
         cy.get('#laajuusInput').type(101)
         cy.get('#tallennusNappi').click()
-
         cy.contains('e2eTestikurssi')
-        cy.contains('101 OSP')
+        cy.get('h4').last().contains(101)
     })
 
+    it('Kurssi voidaan poistaa', function () {
+        cy.get('h4').last().children().click()
+        cy.contains('Poisto tehty')
+        cy.get('h4').last().should('not.contain', 'e2eTestikurssi')
+    })
 })
